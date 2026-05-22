@@ -14,7 +14,7 @@ It also prints multiplication tables in the p-canonical basis for the diagonal H
 
 ## Requirements
 
-- Magma
+- [Magma](https://magma.maths.usyd.edu.au/magma/)
 - [ASLoc](https://github.com/joelgibson/ASLoc), with `ASLoc.spec` visible from the working directory
 - [IHecke](https://github.com/joelgibson/IHecke), available through ASLoc
 
