@@ -1,6 +1,6 @@
 # pcells
 
-Magma scripts for computing p-cells in finite Coxeter groups using ASLoc/IHecke.
+Magma scripts for computing p-cells in finite Coxeter groups using [ASLoc](https://github.com/joelgibson/ASLoc) and [IHecke](https://github.com/joelgibson/IHecke).
 
 ## Main script
 
@@ -15,8 +15,8 @@ It also prints multiplication tables in the p-canonical basis for the diagonal H
 ## Requirements
 
 - Magma
-- ASLoc, with `ASLoc.spec` visible from the working directory
-- IHecke available through ASLoc
+- [ASLoc](https://github.com/joelgibson/ASLoc), with `ASLoc.spec` visible from the working directory
+- [IHecke](https://github.com/joelgibson/IHecke), available through ASLoc
 
 ## Examples
 
