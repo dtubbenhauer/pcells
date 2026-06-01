@@ -11,6 +11,14 @@ The repository currently has two complementary parts:
 2. Magma code for computing \(p\)-cells in finite Coxeter groups using
    ASLoc/IHecke.
 
+## Contact
+
+If you find an error in the data or code, please email:
+
+[daniel.tubbenhauer@sydney.edu.au](mailto:daniel.tubbenhauer@sydney.edu.au)
+
+Same goes for errors related to this repository.
+
 ## Main files
 
 ### `low-rank-cells.pdf`
@@ -136,14 +144,6 @@ GraphCellsH.m
 ```
 
 Additional scripts, logs, or source files may be added later.
-
-## Contact
-
-If you find an error in the data or code, please email:
-
-[daniel.tubbenhauer@sydney.edu.au](mailto:daniel.tubbenhauer@sydney.edu.au)
-
-Same goes for errors related to this repository.
 
 ## Erratum
 
