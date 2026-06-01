@@ -1,49 +1,96 @@
-# pcells
+# TBA
 
-Magma scripts for computing p-cells in finite Coxeter groups using [ASLoc](https://github.com/joelgibson/ASLoc) and [IHecke](https://github.com/joelgibson/IHecke).
+This repository contains supplementary material for the project currently titled
 
-## Main script
+> TBA
 
-`GraphCellsH.m` computes the p-canonical basis for a finite Coxeter group and prints the two-sided p-cells as matrices of intersection sizes
+At the moment, the main file is a compiled note collecting low-rank
+Kazhdan--Lusztig cell data for finite Coxeter groups.
+
+## Contact
+
+If you find an error in the data, please email:
+
+[daniel.tubbenhauer@sydney.edu.au](mailto:daniel.tubbenhauer@sydney.edu.au)
+
+Same goes for errors related to this repository.
+
+## Main file
+
+### `low-rank-cells.pdf`
+
+This PDF records ordinary Kazhdan--Lusztig two-sided cells for finite Coxeter
+groups in low rank, together with additional information used in the paper.
+
+For each type considered, the tables include:
+
+- the cell numbering;
+- the size of each two-sided cell;
+- Lusztig's \(a\)-value;
+- the number
+  \[
+      p(J)=\#\{I\subseteq S\mid w_I\in J\},
+  \]
+  where \(w_I\) is the longest element of the standard parabolic subgroup
+  \(W_I\);
+- whether the cell is strongly regular;
+- for non-strongly-regular cells, the matrix of intersection sizes
+  \[
+      |R_i\cap L_j|
+  \]
+  between right and left cells;
+- in several cases, the corresponding asymptotic Hecke algebra or category.
+
+The purpose of the file is to make the low-rank cell computations transparent
+and easy to cite. In particular, it records which strongly regular cells contain
+longest elements of standard parabolic subgroups.
+
+## Relation to the paper
+
+The data are used to support statements about parabolic diagonal cells and
+strongly regular cells in finite Weyl groups.
+
+In the paper, the relevant citation can be something like:
+
+```bibtex
+@misc{MRT-cells,
+  author = {Miemietz, Vanessa and Roth, Marie and Tubbenhauer, Daniel},
+  title = {TBA},
+  year = {2026},
+  note = {Supplementary low-rank Kazhdan--Lusztig cell data},
+  url = {TBA}
+}
+```
+
+The repository title and URL should be updated once the final title and GitHub
+address are fixed.
+
+## Reproducibility
+
+The computations use standard finite Coxeter group and Hecke algebra tools.
+Some of the underlying checks were performed using GAP3/CHEVIE and Magma-based
+code for cells and \(p\)-cells.
+
+For the specific purpose of the PDF, the important reproducibility check is:
+
+\[
+    \sum_J p(J)=2^{\operatorname{rk}(W)},
+\]
+
+since each subset \(I\subseteq S\) gives exactly one parabolic longest element
+\(w_I\).
+
+## Files
+
+Current repository contents:
 
 ```text
-|R_i ∩ L_j|
+low-rank-cells.pdf
+README.md
 ```
 
-It also prints multiplication tables in the p-canonical basis for the diagonal H-cells.
+More scripts or source files may be added later.
 
-## Requirements
+## Erratum
 
-- [Magma](https://magma.maths.usyd.edu.au/magma/)
-- [ASLoc](https://github.com/joelgibson/ASLoc), with `ASLoc.spec` visible from the working directory
-- [IHecke](https://github.com/joelgibson/IHecke), available through ASLoc
-
-## Examples
-
-Create a save directory once:
-
-```bash
-mkdir -p saves outputs
-```
-
-Run small examples:
-
-```bash
-magma -b type:=G2 char:=2 saveDir:=saves GraphCellsH.m > outputs/g-2-2.txt
-magma -b type:=G2 char:=3 saveDir:=saves GraphCellsH.m > outputs/g-2-3.txt
-magma -b type:=F4 char:=2 saveDir:=saves GraphCellsH.m > outputs/f-4-2.txt
-magma -b type:=F4 char:=3 saveDir:=saves GraphCellsH.m > outputs/f-4-3.txt
-```
-
-Arguments:
-
-- `type`: Cartan type, for example `G2`, `F4`, `E6`
-- `char`: characteristic, either `0` or a prime
-- `saveDir`: optional directory for resumable serialized basis data
-- `targetLength`: optional length cutoff for tests
-- `profileName`: optional Magma profiling label
-- `chatty`: optional ASLoc verbosity
-
-## Notes
-
-The script is designed for finite Coxeter groups. For large types the full cell computation can be expensive; use specialized subregular scripts when only the ordinary subregular cell is needed.
+Empty so far.
