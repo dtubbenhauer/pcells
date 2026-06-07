@@ -18,6 +18,14 @@ The repository has four complementary parts:
 The goal is transparency: the notes give readable summaries, while the raw
 files and code allow the computations to be checked or extended.
 
+## Contact
+
+If you find any errors in the paper **please email me**:
+
+[dtubbenhauer@gmail.com](mailto:dtubbenhauer@gmail.com?subject=[GitHub]%web-reps)
+
+Same goes for any errors related to this page.
+
 ## Main files
 
 ### `low-rank-cells.pdf`
@@ -192,14 +200,6 @@ pre-computed-data.zip
 
 Additional scripts, logs, source files, or corrected output files may be added
 later.
-
-## Contact
-
-If you find an error in the data or code, please email:
-
-[daniel.tubbenhauer@sydney.edu.au](mailto:daniel.tubbenhauer@sydney.edu.au)
-
-Same goes for errors related to this repository.
 
 ## Erratum
 
