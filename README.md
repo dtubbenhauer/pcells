@@ -1,23 +1,30 @@
-# TBA
+# Low-rank cells and \(p\)-cells
 
-This repository contains supplementary material for the project currently titled
+This repository contains supplementary material for a project currently titled
 
 > TBA
 
-The repository currently has two complementary parts:
+The repository has four complementary parts:
 
-1. a compiled note, `low-rank-cells.pdf`, collecting low-rank ordinary
+1. `low-rank-cells.pdf`, a compiled note collecting low-rank ordinary
    Kazhdan--Lusztig cell data;
-2. Magma code for computing \(p\)-cells in finite Coxeter groups using
+2. `low-rank-p-cells.pdf`, a compiled note collecting low-rank \(p\)-cell data,
+   including characteristic zero comparison data and guessed asymptotic
+   category labels;
+3. `pre-computed-data.zip`, the raw output files used for the \(p\)-cell note;
+4. Magma code for computing \(p\)-cells in finite Coxeter groups using
    ASLoc/IHecke.
+
+The goal is transparency: the notes give readable summaries, while the raw
+files and code allow the computations to be checked or extended.
 
 ## Contact
 
-If you find an error in the data or code, please email:
+If you find any errors in the paper **please email me**:
 
-[daniel.tubbenhauer@sydney.edu.au](mailto:daniel.tubbenhauer@sydney.edu.au)
+[dtubbenhauer@gmail.com](mailto:dtubbenhauer@gmail.com?subject=[GitHub]%web-reps)
 
-Same goes for errors related to this repository.
+Same goes for any errors related to this page.
 
 ## Main files
 
@@ -45,10 +52,6 @@ For each type considered, the tables include:
   between right and left cells;
 - in several cases, the corresponding asymptotic Hecke algebra or category.
 
-The purpose of this file is to make the low-rank cell computations transparent
-and easy to cite. In particular, it records which strongly regular cells contain
-longest elements of standard parabolic subgroups.
-
 A useful check on the parabolic-longest-element data is
 
 \[
@@ -57,6 +60,49 @@ A useful check on the parabolic-longest-element data is
 
 since each subset \(I\subseteq S\) gives exactly one parabolic longest element
 \(w_I\).
+
+### `low-rank-p-cells.pdf`
+
+This PDF records low-rank two-sided \(p\)-cells, computed from the
+\(p\)-canonical basis.  It is meant as the \(p\)-analogue of
+`low-rank-cells.pdf`.
+
+The note includes:
+
+- characteristic zero comparison data;
+- the number of \(p\)-cells;
+- \(p\)-cell size vectors;
+- compressed matrices for non-strongly-regular cells;
+- separate positive-characteristic data for types \(B\) and \(C\);
+- exceptional low-rank data for \(G_2\), \(F_4\), and \(E_6\);
+- guessed asymptotic category labels, with warnings where the interpretation is
+  not clear.
+
+The compressed matrix notation is explained in the PDF.  Roughly, it records a
+large matrix of intersection sizes by grouping equal row and column profiles.
+
+### `pre-computed-data.zip`
+
+This archive contains the raw output files used to make `low-rank-p-cells.pdf`.
+The file names follow the convention
+
+```text
+<type>-<rank>-<characteristic>.txt
+```
+
+for example:
+
+```text
+b-6-2.txt
+c-6-2.txt
+d-6-2.txt
+e-6-3.txt
+f-4-2.txt
+g-2-3.txt
+```
+
+These files are useful if you want to check the cell sizes, inspect the raw
+`JCell` blocks, or compare the summarized matrices with the full output.
 
 ### `GraphCellsH.m`
 
@@ -70,9 +116,9 @@ group and prints the two-sided \(p\)-cells as matrices of intersection sizes
 It also prints multiplication tables in the \(p\)-canonical basis for diagonal
 \(H\)-cells.
 
-The script is intended for finite Coxeter groups. For large types the full cell
-computation can be expensive; use smaller examples or specialized scripts when
-only a specific cell is needed.
+The script is intended for finite Coxeter groups.  For large types the full
+cell computation can be expensive; use smaller examples or specialized scripts
+when only a specific cell is needed.
 
 ## Requirements
 
@@ -103,9 +149,18 @@ magma -b type:=F4 char:=2 saveDir:=saves GraphCellsH.m > outputs/f-4-2.txt
 magma -b type:=F4 char:=3 saveDir:=saves GraphCellsH.m > outputs/f-4-3.txt
 ```
 
+Some larger examples used in the data files are:
+
+```bash
+magma -b type:=B6 char:=2 saveDir:=saves GraphCellsH.m > outputs/b-6-2.txt
+magma -b type:=C6 char:=2 saveDir:=saves GraphCellsH.m > outputs/c-6-2.txt
+magma -b type:=D6 char:=2 saveDir:=saves GraphCellsH.m > outputs/d-6-2.txt
+magma -b type:=E6 char:=3 saveDir:=saves GraphCellsH.m > outputs/e-6-3.txt
+```
+
 Common arguments:
 
-- `type`: Cartan type, for example `G2`, `F4`, `E6`;
+- `type`: Cartan type, for example `B6`, `C6`, `D6`, `G2`, `F4`, `E6`;
 - `char`: characteristic, either `0` or a prime;
 - `saveDir`: optional directory for resumable serialized basis data;
 - `targetLength`: optional length cutoff for tests;
@@ -118,20 +173,17 @@ The data are used to support statements about parabolic diagonal cells,
 strongly regular cells, subregular \(p\)-cells, and related low-rank checks in
 finite Weyl groups.
 
-In the paper, the relevant citation can be something like:
+The suggested citation is:
 
 ```bibtex
-@misc{MRT-cells,
+@misc{MRT,
   author = {Miemietz, Vanessa and Roth, Marie and Tubbenhauer, Daniel},
-  title = {TBA},
+  title = {Low-rank Kazhdan--Lusztig cell and p-cell data},
   year = {2026},
-  note = {Supplementary low-rank Kazhdan--Lusztig and \(p\)-cell data},
-  url = {TBA}
+  note = {Supplementary computational data},
+  url = {https://github.com/dtubbenhauer/pcells}
 }
 ```
-
-The repository title and URL should be updated once the final title and GitHub
-address are fixed.
 
 ## Repository contents
 
@@ -139,11 +191,15 @@ Current intended contents:
 
 ```text
 README.md
-low-rank-cells.pdf
+LICENSE
 GraphCellsH.m
+low-rank-cells.pdf
+low-rank-p-cells.pdf
+pre-computed-data.zip
 ```
 
-Additional scripts, logs, or source files may be added later.
+Additional scripts, logs, source files, or corrected output files may be added
+later.
 
 ## Erratum
 
