@@ -2,7 +2,7 @@
 
 This repository contains supplementary material for a project currently titled
 
-> TBA
+> The subregular and submaximal p-cells
 
 The repository has four complementary parts:
 
@@ -178,7 +178,7 @@ The suggested citation is:
 ```bibtex
 @misc{MRT,
   author = {Miemietz, Vanessa and Roth, Marie and Tubbenhauer, Daniel},
-  title = {Low-rank Kazhdan--Lusztig cell and p-cell data},
+  title = {The subregular and submaximal p-cells},
   year = {2026},
   note = {Supplementary computational data},
   url = {https://github.com/dtubbenhauer/pcells}
